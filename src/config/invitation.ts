@@ -28,7 +28,11 @@ export const invitation = {
     liverpool: "https://mesaderegalos.liverpool.com.mx/milistaderegalos/60032301",
 
     // 3. Direccion (Google Maps)
-    direccion: "https://maps.app.goo.gl/kmrjLUnu8FT4RpAM6",
+    // URL fija que abre la ficha exacta del lugar por su Place ID (no depende
+    // del acortador goo.gl, que puede variar). Abre "Torre Molinos 260" con
+    // nombre, fotos y boton de "Como llegar".
+    direccion:
+      "https://www.google.com/maps/search/?api=1&query=Torre%20Molinos%20260&query_place_id=0x85d21df873845727:0xacb4ca236faf78bb",
 
     // 4. Confirmar asistencia (WhatsApp)
     confirmar: "https://wa.link/jlm9gr",
