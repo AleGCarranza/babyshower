@@ -12,11 +12,20 @@ export const invitation = {
   descripcion:
     "Acompananos a celebrar el Baby Shower en honor a Regina. Domingo 27 de septiembre de 2026, 12:30 P.M.",
 
-  // Imagen de la invitacion (dentro de la carpeta public/)
+  // URL publica del sitio (para que WhatsApp arme bien la vista previa).
+  // Es tu dominio de Netlify, sin barra al final.
+  siteUrl: "https://regina-baby-shower.netlify.app",
+
+  // Imagen de la invitacion que se muestra en la pagina (alta calidad).
   imagen: "/invitacion-regina.jpeg",
-  // Dimensiones reales de la imagen (para los meta tags Open Graph)
   imagenAncho: 1024,
   imagenAlto: 1536,
+
+  // Imagen optimizada y liviana (<300KB) SOLO para la vista previa de WhatsApp.
+  // WhatsApp no muestra el thumbnail si la imagen pesa demasiado.
+  ogImagen: "/og-invitacion-regina.jpg",
+  ogImagenAncho: 800,
+  ogImagenAlto: 1200,
 
   // --- Links de los 4 botones (en el orden en que aparecen en la imagen) ---
   links: {
