@@ -1,5 +1,9 @@
-import Image from "next/image";
 import { invitation } from "@/config/invitation";
+
+// En GitHub Pages el sitio se sirve bajo /<nombre-repo>, asi que la imagen
+// debe llevar ese prefijo. En local la variable esta vacia y queda igual.
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+const imagenSrc = `${basePath}${invitation.imagen}`;
 
 /**
  * Zonas clicables sobre los botones dibujados en la imagen.
@@ -53,13 +57,11 @@ export default function Invitacion() {
         className="relative w-full max-w-[480px] overflow-hidden rounded-xl shadow-lg"
         style={{ aspectRatio: `${invitation.imagenAncho} / ${invitation.imagenAlto}` }}
       >
-        <Image
-          src={invitation.imagen}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={imagenSrc}
           alt={`Invitacion al baby shower de ${invitation.festejada}`}
-          fill
-          priority
-          sizes="(max-width: 480px) 100vw, 480px"
-          className="object-contain"
+          className="absolute inset-0 h-full w-full object-contain"
         />
 
         {/* Zonas clicables invisibles sobre cada boton dibujado */}
