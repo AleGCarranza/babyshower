@@ -48,4 +48,21 @@ export const invitation = {
   },
 } as const;
 
-export type Invitation = typeof invitation;
+export type Invitation = {
+  festejada: string;
+  titulo: string;
+  descripcion: string;
+  siteUrl: string;
+  imagen: string;
+  imagenAncho: number;
+  imagenAlto: number;
+  ogImagen: string;
+  ogImagenAncho: number;
+  ogImagenAlto: number;
+  links: {
+    amazon: string;
+    liverpool: string;
+    direccion: string;
+    confirmar: string;
+  };
+};
