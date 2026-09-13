@@ -1,9 +1,7 @@
 import { invitation } from "@/config/invitation";
+import type { Invitation } from "@/config/invitation";
 
-// En GitHub Pages el sitio se sirve bajo /<nombre-repo>, asi que la imagen
-// debe llevar ese prefijo. En local la variable esta vacia y queda igual.
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
-const imagenSrc = `${basePath}${invitation.imagen}`;
 
 /**
  * Zonas clicables sobre los botones dibujados en la imagen.
@@ -48,9 +46,10 @@ const zonas = [
   },
 ];
 
-export default function Invitacion() {
+export default function Invitacion({ config = invitation, bgColor = "#f7d9e3" }: { config?: Invitation; bgColor?: string }) {
+  const imagenSrc = `${basePath}${config.imagen}`;
   return (
-    <main className="flex min-h-dvh w-full items-start justify-center bg-[#f7d9e3] p-2 sm:items-center sm:p-4">
+    <main className="flex min-h-dvh w-full items-start justify-center p-2 sm:items-center sm:p-4" style={{ backgroundColor: bgColor }}>
       {/* Contenedor con el aspect-ratio real de la imagen.
           max-w limita el ancho en desktop; en movil ocupa todo el ancho. */}
       <div
@@ -60,7 +59,7 @@ export default function Invitacion() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={imagenSrc}
-          alt={`Invitacion al baby shower de ${invitation.festejada}`}
+          alt={`Invitacion al baby shower de ${config.festejada}`}
           className="absolute inset-0 h-full w-full object-contain"
         />
 
